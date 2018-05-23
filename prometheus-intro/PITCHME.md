@@ -5,7 +5,7 @@
 - PromQL: powerful query language
 +++
 #### Metrics Format
-![Image](./assets/Prom_svc_port_fwd.png)
+![Image](/assets/Prom_svc_port_fwd.png)
 ![Image](./assets/Prom_metrics_text_eg.png)
 
 ---
