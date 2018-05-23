@@ -5,8 +5,8 @@
 - PromQL: powerful query language
 +++
 #### Metrics Format
-![Image](./assets/md/assets/Prom_svc_port_fwd.png)
-![Image](./assets/md/assets/Prom_metrics_text_eg.png)
+![Image](./assets/Prom_svc_port_fwd.png)
+![Image](./assets/Prom_metrics_text_eg.png)
 
 ---
 ### Prometheus Exporter
@@ -22,13 +22,13 @@
 - New TSDB (Can persist 1,000,000+ samples/core/sec to disk)
 - Rule format in standard yaml instead of proprietary DSL
 +++
-![Image](./assets/md/assets/Prom_rule_format.png)
+![Image](./assets/Prom_rule_format.png)
 +++
-![Image](./assets/md/assets/Prom_Bench_1.png)
+![Image](./assets/Prom_Bench_1.png)
 +++
-![Image](./assets/md/assets/Prom_Bench_2.png)
+![Image](./assets/Prom_Bench_2.png)
 +++
-![Image](./assets/md/assets/Prom_Bench_3.png)
+![Image](./assets/Prom_Bench_3.png)
 
 ---
 Example spring-boot app
