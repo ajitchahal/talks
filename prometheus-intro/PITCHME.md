@@ -9,12 +9,7 @@
 ![Image](prometheus-intro/assets/Prom_metrics_text_eg.png)
 
 ---
-### Prometheus Exporter
-- System Metrics : Node exporter - exposes OS and hardware metrics (linux)
-- Application metrics - a spring boot app must expose its endpoint
--
 
----
 
 ### Prometheus2   Features
 
