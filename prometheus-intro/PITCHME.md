@@ -6,7 +6,7 @@
 +++
 #### Metrics Format
 ![Image](prometheus-intro/assets/Prom_svc_port_fwd.png)
-![Image](assets/Prom_metrics_text_eg.png)
+![Image](prometheus-intro/assets/Prom_metrics_text_eg.png)
 
 ---
 ### Prometheus Exporter
@@ -22,13 +22,13 @@
 - New TSDB (Can persist 1,000,000+ samples/core/sec to disk)
 - Rule format in standard yaml instead of proprietary DSL
 +++
-![Image](assets/Prom_rule_format.png)
+![Image](prometheus-intro/assets/Prom_rule_format.png)
 +++
-![Image](assets/Prom_Bench_1.png)
+![Image](prometheus-intro/assets/Prom_Bench_1.png)
 +++
-![Image](assets/Prom_Bench_2.png)
+![Image](prometheus-intro/assets/Prom_Bench_2.png)
 +++
-![Image](assets/Prom_Bench_3.png)
+![Image](prometheus-intro/assets/Prom_Bench_3.png)
 
 ---
 Example spring-boot app
