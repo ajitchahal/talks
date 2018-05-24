@@ -11,9 +11,9 @@ Note:
 Sayan: nice features, Prometheus was suffering from performance problems... Did the community take care of this in version2.0?
 ---
 ### Prometheus2 Features
-- New Time Series Database (Can persist 1,000,000+ samples/core/sec to disk)
-- Optimized Scraping
-- Prometheus Rules in standard yaml, instead of proprietary DSL
+- New time series database (can persist 1,000,000+ samples/core/sec to disk)
+- Optimized scraping
+- Prometheus rules in standard yaml, instead of proprietary DSL
 +++
 ![Image](prometheus-intro/assets/Prom_Bench_1.png)
 +++
@@ -26,8 +26,8 @@ Note:
 Sayan: That fine but what about autoscaling.
 ---
 ### Horizontal Pod Autoscaler
-- v1 cpu based auto scaling only
-- v2 autoscaling with custom Metrics (beta)
+- V1: cpu based auto scaling only
+- V2: autoscaling with custom metrics (beta)
 - Custom metrics adapter is required (https://github.com/DirectXMan12/k8s-prometheus-adapter)
 +++
 ![Image](prometheus-intro/assets/Custom_metrics_1.png)
