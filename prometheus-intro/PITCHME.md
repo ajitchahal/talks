@@ -33,5 +33,5 @@ Sayan: That fine but what about autoscaling.
 +++
 ![Image](prometheus-intro/assets/Custom_metrics.png)
 
-CNCF Talk https://www.youtube.com/watch?v=1xm_ccAYO90&feature=youtu.be
+CNCF Talk https://youtu.be/1xm_ccAYO90
 ---
