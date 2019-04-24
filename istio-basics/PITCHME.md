@@ -80,6 +80,10 @@ spec:
           number: 8080
         host: my-nginx-with-istio
 ```
+<span class="code-presenting-annotation fragment current-only" data-code-focus="2"></span>
+<span class="code-presenting-annotation fragment current-only" data-code-focus="22">External host</span>
+<span class="code-presenting-annotation fragment current-only" data-code-focus="27-28">External host</span>
+
 ---
 ### Configuring outgoing requests
 <span class='menu-title slide-title'>Add egress rules</span>
