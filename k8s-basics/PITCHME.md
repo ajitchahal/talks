@@ -1,12 +1,11 @@
 ### AGENDA
-- Why kubernetes
 - What is kubernetes
 - Minikube Installation / Intro
 - Kubectl
 - Pod
 - Service
 +++
-   ### AGENDA
+### AGENDA
 - Deployment
 - Volumes
 - Config sets
@@ -21,11 +20,11 @@
 - Containerized deployment (Docker)  <!-- .element: class="fragment" -->
 - Out of box resilience - Multi AZ <!-- .element: class="fragment" -->
 +++
-![Image](k8s-intro/assets/Slide6.1.png)
+![Image](k8s-basics/assets/Slide6.1.png)
 +++
-![Image](k8s-intro/assets/Slide6.2.png)
+![Image](k8s-basics/assets/Slide6.2.png)
 +++
-![Image](k8s-intro/assets/Slide6.png)
+![Image](k8s-basics/assets/Slide6.png)
 ---
 ####  kubectl utility cli
 ```sh
