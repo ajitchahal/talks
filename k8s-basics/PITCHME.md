@@ -186,7 +186,7 @@ spec:
 ```
 
 <span class="code-presenting-annotation fragment current-only" data-code-focus="2">kubectl apply -f deployment.yml</span>
-<span class="code-presenting-annotation fragment current-only" data-code-focus="20">kubectl apply -f deployment.yml</span>
+<span class="code-presenting-annotation fragment current-only" data-code-focus="19-20">kubectl apply -f deployment.yml</span>
 <span class="code-presenting-annotation fragment current-only" data-code-focus="27">kubectl apply -f deployment.yml</span>
 <span class="code-presenting-annotation fragment current-only" data-code-focus="30">kubectl apply -f deployment.yml</span>
 Note:
