@@ -39,7 +39,7 @@
 - ServiceEntry (To connecto services external to k8s cluster)
 ---
 ### Configuring incoming requests
-```yaml
+```yml
 apiVersion: networking.istio.io/v1alpha3
 kind: Gateway
 metadata:
@@ -80,7 +80,7 @@ spec:
 ```
 ---
 ### Configuring outgoing requests
-```yaml
+```yml
 apiVersion: networking.istio.io/v1alpha3
 kind: ServiceEntry
 metadata:
@@ -105,6 +105,6 @@ spec:
     name: http
     protocol: HTTP
 ```
-<span class="code-presenting-annotation fragment current-only" data-code-focus="6-7">save to a file and run kubectl apply -f svc-lb.yml</span>
+<span class="code-presenting-annotation fragment current-only" data-code-focus="6-7">External host</span>
 ---
 ## Thank you.
