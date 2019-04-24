@@ -31,6 +31,8 @@
 brew install kubernetes-cli
 kubectl version
 ```
++++
+![Image](k8s-basics/assets/k-cheat-sheet.png)
 ---
 #### Kubernetes Pods
 - Pods are smallest unit of resource in Kubernetes
