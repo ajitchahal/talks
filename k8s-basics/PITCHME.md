@@ -188,6 +188,7 @@ spec:
 <span class="code-presenting-annotation fragment current-only" data-code-focus="2">kubectl apply -f deployment.yml</span>
 <span class="code-presenting-annotation fragment current-only" data-code-focus="20">kubectl apply -f deployment.yml</span>
 <span class="code-presenting-annotation fragment current-only" data-code-focus="27">kubectl apply -f deployment.yml</span>
+<span class="code-presenting-annotation fragment current-only" data-code-focus="30">kubectl apply -f deployment.yml</span>
 Note:
 Try deleting a pod and see it is getting recreated again
 +++
@@ -210,7 +211,7 @@ spec:
 ```
 
 <span class="code-presenting-annotation fragment current-only" data-code-focus="2">kubectl apply -f service.yml</span>
-<span class="code-presenting-annotation fragment current-only" data-code-focus="7">kubectl apply -f service.yml</span>
+<span class="code-presenting-annotation fragment current-only" data-code-focus="6-7">kubectl apply -f service.yml</span>
 Note:
 Access the pod in browser http://192.168.99.100:32620/
 +++
