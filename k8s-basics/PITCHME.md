@@ -37,7 +37,7 @@ kubectl version
 #### Kubernetes Pods
 - Pods are smallest unit of resource in Kubernetes
 - Pod runs 1 or more containers in it
-- They are scheduled and managed by services
+- They are scheduled and managed by k8s sheduler
 +++
 ```sh
 23:06 $ kubectl get pods | grep neo4j
@@ -64,17 +64,21 @@ neo4jrr-2                                  1/1       Running   2          8d
 - <i class="fa fa-hand-o-right" aria-hidden="true"> </i> Maximum number of pods are limited to resources of VM.
   - max 3 Neo4j instances.
 +++
-### Minikube installation
+### Minikube cli installation
 - brew install kubectl
 - brew install cask
 - brew cask install minikube
-- or curl -Lo minikube https://storage.googleapis.com/minikube/releases/v0.24.1/minikube-darwin-amd64 && chmod +x minikube && sudo mv minikube /usr/local/bin/
 +++
-### VMware for Minikube installation
-- WMware 
-  - wget -P ~/Downloads/ http://download.virtualbox.org/virtualbox/5.2.2/VirtualBox-5.2.2-119230-OSX.dmg
-  - double click the dmg file and begin installing virtualbox
-- minikube start --vm-driver vmware
+### VM for Minikube installation
+
+- VMware
+-- Install WMware fusion on mac
+-- install [driver](https://github.com/kubernetes/minikube/blob/master/docs/drivers.md#vmware-unified-driver)
+-- minikube start --vm-driver vmware
+- hyperkit
+-- install hyperkit and install [driver](https://github.com/kubernetes/minikube/blob/master/docs/drivers.md#hyperkit-driver)
+-- minikube start --vm-driver hyperkit
+
 ---
 ### Exercise - 1
 #### Create a Pod
@@ -110,8 +114,8 @@ apiVersion: v1
 kind: Pod
 metadata:
   labels:
-    run: kuad-web-pod
-  name: dpl-kuad-pod
+    run: single-kuad-web-pod
+  name: single-kuad-pod
   namespace: default
 spec:
   volumes:
@@ -166,7 +170,7 @@ spec:
       volumes:
       - name: kuard-data
         hostPath:
-          path: /var
+          path: /Users/d069900/tmp
         #type: DirectoryOrCreate
       containers:
       - name: kuad-container
@@ -182,14 +186,16 @@ spec:
 ```
 
 <span class="code-presenting-annotation fragment current-only" data-code-focus="2">kubectl apply -f deployment.yml</span>
+<span class="code-presenting-annotation fragment current-only" data-code-focus="20">kubectl apply -f deployment.yml</span>
+<span class="code-presenting-annotation fragment current-only" data-code-focus="27">kubectl apply -f deployment.yml</span>
 Note:
 Try deleting a pod and see it is getting recreated again
 +++
 
 <span class='menu-title slide-title'>Expose pod via service</span>
 ```yml
-kind: Service
 apiVersion: v1
+kind: Service
 metadata:
   name: kuad-service
 spec:
@@ -204,6 +210,7 @@ spec:
 ```
 
 <span class="code-presenting-annotation fragment current-only" data-code-focus="2">kubectl apply -f service.yml</span>
+<span class="code-presenting-annotation fragment current-only" data-code-focus="7">kubectl apply -f service.yml</span>
 Note:
 Access the pod in browser http://192.168.99.100:32620/
 +++
@@ -365,8 +372,4 @@ http://192.168.99.100:30074/browser/
 create(n:Emp {name:'Ajit'})
 match(n) return n
 ```
----
-#### Ich bedanke mich für Ihre aufmerksamkeit
-#### Les agradezco su atención y su apoyo.
-#### आपके ध्यान के लिए धन्यवाद.
 ---
