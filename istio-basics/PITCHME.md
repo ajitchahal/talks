@@ -118,7 +118,8 @@ spec:
 ---
 
 ### RBAC rules
-<span class='menu-title slide-title'>Add egress rules</span>
+
+<span class='menu-title slide-title'>Rbac rules</span>
 ```yml
 apiVersion: "rbac.istio.io/v1alpha1"
 kind: ServiceRole
@@ -149,9 +150,9 @@ spec:
   - properties:
       source.namespace: "argonauts"
 ```
+
 ### RBAC - Service accounts
-To ask for access to other service create SA for the applications
-<span class='menu-title slide-title'>Add egress rules</span>
+<span class='menu-title slide-title'>Service Account - To ask for access to other service create SA for the applications </span>
 ```yml
 apiVersion: v1
 kind: ServiceAccount
