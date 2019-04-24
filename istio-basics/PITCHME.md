@@ -127,7 +127,7 @@ spec:
   rules:
   - services: ["*.argonauts.svc.cluster.local"]
     methods: ["*"]
----
+
 apiVersion: "rbac.istio.io/v1alpha1"
 kind: ServiceRoleBinding
 metadata:
@@ -146,6 +146,15 @@ spec:
       source.namespace: "orks"
   - properties:
       source.namespace: "argonauts"
+```
+### RBAC - Service accounts
+To ask for access to other service create SA for the applications
+<span class='menu-title slide-title'>Add egress rules</span>
+```yml
+apiVersion: v1
+kind: ServiceAccount
+metadata:
+  name: my-application
 ```
 ---
 ## Thank you.
