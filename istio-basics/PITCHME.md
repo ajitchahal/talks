@@ -59,7 +59,7 @@ spec:
       privateKey: /etc/istio/ingressgateway-certs/tls.key
     hosts:
     - "*.ajit.de"
----
+
 apiVersion: networking.istio.io/v1alpha3
 kind: VirtualService
 metadata:
@@ -92,7 +92,7 @@ spec:
   - number: 443
     name: https
     protocol: HTTPS
----
+
 apiVersion: networking.istio.io/v1alpha3
 kind: ServiceEntry
 metadata:
