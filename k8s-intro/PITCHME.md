@@ -30,11 +30,11 @@
 - Out of the the box Service Discovery & scaling of applications  <!-- .element: class="fragment" -->
 - Containerized deployment (Docker/rkt)  <!-- .element: class="fragment" -->
 +++
-![Image](./assets/md/assets/Slide6.1.png)
+![Image](./assets/Slide6.1.png)
 +++
-![Image](./assets/md/assets/Slide6.2.png)
+![Image](./assets/Slide6.2.png)
 +++
-![Image](./assets/md/assets/Slide6.png)
+![Image](./assets/Slide6.png)
 ---
 #### Neo4j Causal Cluster
 - Write and read load is balanced between dedicated neo4j instances.
@@ -49,7 +49,7 @@
 - Hot backups  <!-- .element: class="fragment" -->
 +++
 #### Neo4j Causal Cluster
-![Image](./assets/md/assets/Slide3.jpg)
+![Image](./assets/Slide3.jpg)
 ---
 ### Core Servers Definition
 +++
