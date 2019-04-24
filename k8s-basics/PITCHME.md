@@ -10,6 +10,7 @@
 - Volumes
 - Config sets
 - Secrets
+- Namespaces
 ---
 ### Kubernetes
 - Cloud agnostic system for deployment of applications/services/databases
@@ -258,6 +259,13 @@ current-context: neo4j-k8s
 - To connect to Stage
   - export KUBECONFIG=~/kubernetes/k8_stage.config
   - export KUBECONFIG=~/.kube/config
+---
+### Namespaces 
+- A vitual boundry for each / domain
+- Teams gets access to certain NS only
+```sh
+kubectl -n kiwis get pods
+```
 ---
 ### Statefulsets
 - Static & Predictable names of pods

@@ -114,4 +114,38 @@ spec:
 ```
 <span class="code-presenting-annotation fragment current-only" data-code-focus="6-7">External host</span>
 ---
+### RBAC rules
+<span class='menu-title slide-title'>Add egress rules</span>
+```yml
+---
+apiVersion: "rbac.istio.io/v1alpha1"
+kind: ServiceRole
+metadata:
+  name: argo-services-role
+  namespace: argonauts
+spec:
+  rules:
+  - services: ["*.argonauts.svc.cluster.local"]
+    methods: ["*"]
+---
+apiVersion: "rbac.istio.io/v1alpha1"
+kind: ServiceRoleBinding
+metadata:
+  name: argo-services-role-binding
+  namespace: argonauts
+spec:
+  roleRef:
+    kind: ServiceRole
+    name: "argo-services-role"
+  subjects:
+  - user: cluster.local/ns/istio-system/sa/istio-ingressgateway-service-account
+  - user: cluster.local/ns/api-gateway/sa/ambassador
+  - properties:
+      source.namespace: "storks"
+  - properties:
+      source.namespace: "orks"
+  - properties:
+      source.namespace: "argonauts"
+```
+---
 ## Thank you.
