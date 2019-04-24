@@ -37,8 +37,10 @@
 - Gateway - Define TLS/domain etc. 
 - VirtualService - Define routes to applications
 - ServiceEntry (To connecto services external to k8s cluster)
+- Define service account and RBAC rules
 ---
 ### Configuring incoming requests
+<span class='menu-title slide-title'>Add routing rules</span>
 ```yml
 apiVersion: networking.istio.io/v1alpha3
 kind: Gateway
@@ -80,6 +82,7 @@ spec:
 ```
 ---
 ### Configuring outgoing requests
+<span class='menu-title slide-title'>Add egress rules</span>
 ```yml
 apiVersion: networking.istio.io/v1alpha3
 kind: ServiceEntry
