@@ -34,9 +34,9 @@
 ![Image](istio-basics/assets/istio0.8-flow-diagram.png)
 ---
 ### How to deploy apps with istio
-Gateway - Define TLS/domain etc. 
-VirtualService - Define routes to applications
-ServiceEntry (To connecto services external to k8s cluster)
+- Gateway - Define TLS/domain etc. 
+- VirtualService - Define routes to applications
+- ServiceEntry (To connecto services external to k8s cluster)
 ---
 ### Configuring incoming requests
 ```yaml
