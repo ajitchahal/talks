@@ -150,7 +150,7 @@ spec:
   - properties:
       source.namespace: "argonauts"
 ```
-
+---
 ### RBAC - Service accounts
 <span class='menu-title slide-title'>Service Account - To ask for access to other service create SA for the applications </span>
 ```yml
