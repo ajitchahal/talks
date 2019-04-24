@@ -112,12 +112,14 @@ spec:
     name: http
     protocol: HTTP
 ```
+
 <span class="code-presenting-annotation fragment current-only" data-code-focus="6-7">External host</span>
+
 ---
+
 ### RBAC rules
 <span class='menu-title slide-title'>Add egress rules</span>
 ```yml
----
 apiVersion: "rbac.istio.io/v1alpha1"
 kind: ServiceRole
 metadata:
