@@ -1,0 +1,130 @@
+apiVersion: apps/v1beta1
+kind: Deployment
+metadata:
+  creationTimestamp: null
+  labels:
+    run: nginx-test-ajit
+  name: nginx-test-ajit
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      run: nginx-test-ajit
+  template:
+    metadata:
+    #   annotations:
+    #    sidecar.istio.io/inject: "false"
+      creationTimestamp: null
+      labels:
+        run: nginx-test-ajit
+    spec:
+      containers:
+      - image: ajitchahal/nginx-2
+        name: nginx-test-ajit
+        ports:
+        - containerPort: 80
+          name: http
+---
+apiVersion: v1
+kind: Service
+metadata:
+  annotations:
+    getambassador.io/config: |
+      ---
+      apiVersion: ambassador/v1
+      kind:  Mapping
+      name:  beneidentity-service-mapping-root
+      prefix: /nginx-test-ajit/
+      service: http://nginx-test-ajit.kiwis:80
+      tls: upstream
+      timeout_ms: 7000
+      ---
+      apiVersion: ambassador/v1
+      kind:  Mapping
+      name:  beneidentity-service-mapping
+      prefix: /nginx-test-ajit
+      service: http://nginx-test-ajit.kiwis:80
+      tls: upstream
+      timeout_ms: 7000
+  creationTimestamp: null
+  labels:
+    run: nginx-test-ajit
+  name: nginx-test-ajit
+spec:
+  ports:
+  - port: 80
+    protocol: TCP
+    targetPort: http
+  selector:
+    run: nginx-test-ajit
+  sessionAffinity: None
+  type: ClusterIP
+status:
+---
+apiVersion: networking.istio.io/v1alpha3
+kind: VirtualService
+metadata:
+  generation: 1
+  name: nginx-test-ajit
+spec:
+  gateways:
+  - cds-gateway.commontools.svc.cluster.local
+  hosts:
+  - nginx-test-ajit.internal.stage.context.cloud.sap
+  http:
+  - match:
+    - headers:
+        Authorization:
+          exact: Basic YWJjOnRlc3Q=
+    route:
+    - destination:
+        host: nginx-test-ajit.kiwis.svc.cluster.local
+        port:
+          number: 80
+  - match:
+    - uri:
+        regex: (\/{1}$|\/status\/|\/api-console[\/]?[\d\D]*$)
+    route:
+    - destination:
+        host: nginx-test-ajit.kiwis.svc.cluster.local
+        port:
+          number: 80
+  - fault:
+      abort:
+        httpStatus: 403
+        percent: 100
+    route:
+    - destination:
+        host: nginx-test-ajit.kiwis.svc.cluster.local
+        port:
+          number: 80
+---
+apiVersion: rbac.istio.io/v1alpha1
+kind: ServiceRole
+metadata:
+  name: kiwis-services-role
+  namespace: kiwis
+spec:
+  rules:
+  - methods:
+    - '*'
+    services:
+    - '*.kiwis.svc.cluster.local'
+---
+apiVersion: rbac.istio.io/v1alpha1
+kind: ServiceRoleBinding
+metadata:
+  name: kiwis-services-role-binding
+  namespace: kiwis
+spec:
+  roleRef:
+    kind: ServiceRole
+    name: kiwis-services-role
+  subjects:
+  - user: cluster.local/ns/istio-system/sa/istio-ingressgateway-service-account
+  - user: cluster.local/ns/api-gateway/sa/ambassador
+  - properties:
+      source.namespace: argonauts
+  - properties:
+      source.namespace: kiwis
+  

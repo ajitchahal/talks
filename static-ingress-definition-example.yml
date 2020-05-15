@@ -1,0 +1,70 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  annotations:
+  labels:
+    run: nginx-test-ajit2
+  name: nginx-test-ajit2
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      run: nginx-test-ajit2
+  strategy:
+    rollingUpdate:
+      maxSurge: 25%
+      maxUnavailable: 25%
+    type: RollingUpdate
+  template:
+    metadata:
+      annotations:
+        sidecar.istio.io/inject: "false"
+      creationTimestamp: null
+      labels:
+        run: nginx-test-ajit2
+    spec:
+      containers:
+      - image: repository.hybris.com:5007/argonauts/ping:latest
+        imagePullPolicy: Always
+        name: nginx-test-ajit2
+        ports:
+        - containerPort: 80
+          name: http
+          protocol: TCP
+        resources: {}
+        terminationMessagePath: /dev/termination-log
+        terminationMessagePolicy: File
+      dnsPolicy: ClusterFirst
+      restartPolicy: Always
+      schedulerName: default-scheduler
+      securityContext: {}
+      terminationGracePeriodSeconds: 30
+---
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  annotations:
+    ingress.kubernetes.io/ssl-passthrough: "true"
+    kubernetes.io/ingress.allow-http: "false"
+    kubernetes.io/ingress.class: k8snginx
+    nginx.ingress.kubernetes.io/configuration-snippet: |
+      modsecurity_rules '
+        SecRuleEngine On
+      ';
+  labels:
+    app: test-app
+  name: test-ajit-ing
+  namespace: kiwis
+spec:
+  rules:
+  - host: bene.stage.context.cloud.sap
+    http:
+      paths:
+      - backend:
+          serviceName: nginx-test-ajit2
+          servicePort: 80
+  tls:
+  - hosts:
+    - bene.stage.context.cloud.sap
+status:
+  loadBalancer: {}
